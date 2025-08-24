@@ -10,6 +10,9 @@
 		},
 		"LS_Gen2_Output_properties_typeProperties_url": {
 			"value": "https://samigratioawsazure.dfs.core.windows.net/"
+		},
+		"LS_AKV_SECRET_properties_typeProperties_baseUrl": {
+			"value": "https://kv-migrationawsazure.vault.azure.net/"
 		}
 	}
 }

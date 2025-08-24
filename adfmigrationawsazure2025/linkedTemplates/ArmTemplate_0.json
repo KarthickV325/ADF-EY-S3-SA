@@ -14,6 +14,10 @@
 		"LS_Gen2_Output_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://samigratioawsazure.dfs.core.windows.net/"
+		},
+		"LS_AKV_SECRET_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-migrationawsazure.vault.azure.net/"
 		}
 	},
 	"variables": {
@@ -33,6 +37,19 @@
 						"type": "SecureString",
 						"value": "[parameters('LS_Gen2_Output_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_AKV_SECRET')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('LS_AKV_SECRET_properties_typeProperties_baseUrl')]"
 				}
 			},
 			"dependsOn": []
